@@ -1,0 +1,10 @@
+torch>=2.1
+numpy
+librosa>=0.10
+soundfile
+mirdata>=0.3.8
+jams
+mir_eval
+pyyaml
+tqdm
+matplotlib

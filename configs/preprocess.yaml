@@ -1,0 +1,15 @@
+# TabCNN (Wiggins & Kim, 2019) ile uyumlu olması hedefleniyor.
+# Değerleri andywiggins/tab-cnn reposundaki ön işleme koduyla karşılaştırıp doğrulayın.
+audio:
+  source: mic          # mic | mix | hex_debleeded
+  sample_rate: 22050
+cqt:
+  hop_length: 512
+  n_bins: 192
+  bins_per_octave: 24
+labels:
+  num_strings: 6
+  num_frets: 20        # perde 0–19, + 1 sessiz sınıfı = 21 sınıf
+  open_strings_midi: [40, 45, 50, 55, 59, 64]   # E A D G B E
+split:
+  test_player: 5       # 0–5 arası; 6-fold rotasyon için değiştirilir

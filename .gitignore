@@ -1,0 +1,25 @@
+# Veri ve büyük dosyalar
+data/raw/*
+data/processed/*
+!data/**/.gitkeep
+*.npy
+*.npz
+*.wav
+*.pt
+*.ckpt
+checkpoints/
+runs/
+wandb/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Notebook / editör
+.ipynb_checkpoints/
+.vscode/
+.idea/
+.DS_Store
