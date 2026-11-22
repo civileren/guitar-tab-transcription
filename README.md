@@ -1,38 +1,10 @@
 # Polyphonic Guitar Transcription to Tablature
 
-CENG 481 – Artificial Neural Networks  
+CENG 481 – Artificial Neural Networks
 Yusuf Çağlayan (202211016) · Eren Civil (202111081)
 
-Gitar kaydını dinleyip tablatura (tel + perde) üreten bir CRNN modeli ve
-playability-aware string/fret ataması.
+## Proje Tanımı
 
-## Kurulum
+Bu proje, polifonik gitar kayıtlarını otomatik olarak tablatüre dönüştüren bir sistem geliştirmeyi amaçlamaktadır. Ses kaydı Constant-Q Transform (CQT) ile zaman-frekans temsiline çevrilir ve bir CRNN (Convolutional Recurrent Neural Network) modeli, her zaman diliminde hangi telde hangi perdenin çalındığını tahmin eder.
 
-```bash
-git clone https://github.com/<kullanici>/guitar-tab-transcription.git
-cd guitar-tab-transcription
-python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-## Klasör yapısı
-
-```
-configs/          Ön işleme ve eğitim ayarları (YAML)
-data/raw/         GuitarSet (git'e eklenmez)
-data/processed/   Önceden hesaplanmış CQT ve etiketler (git'e eklenmez)
-notebooks/        Keşif ve görselleştirme
-scripts/          Çalıştırılabilir scriptler (indirme, ön işleme, eğitim)
-src/data/         Dataset, CQT, etiket üretimi
-src/models/       TabCNN, CRNN
-src/eval/         Metrikler, playability ölçümleri
-tests/            Sanity check'ler
-```
-
-## Yol haritası
-
-- [ ] Hafta 1–2: Data pipeline (CQT, etiketler, player split) · Metrikler + Basic Pitch
-- [ ] Hafta 3–4: TabCNN baseline · Tab export (MusicXML) → **uçtan uca çalışan sistem**
-- [ ] Hafta 5–6: CRNN + onset head · Augmentation, telefon test seti
-- [ ] Hafta 7–8: Playability loss · Hand-movement decoding
-- [ ] Hafta 9–10: Demo, rapor, sunum
+Standart nota transkripsiyonundan farklı olarak gitarda aynı nota birden fazla tel ve perde kombinasyonuyla çalınabilir. Bu nedenle sistem, tel/perde atamasında çalınabilirliği (playability) de göz önünde bulundurarak gerçekçi ve elle çalınabilir tablatürler üretmeyi hedefler. Model, GuitarSet veri seti üzerinde eğitilip değerlendirilmektedir.
